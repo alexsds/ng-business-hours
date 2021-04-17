@@ -1,0 +1,35 @@
+{
+  "name": "ng-business-hours",
+  "version": "0.1.0",
+  "keywords": [
+    "angular",
+    "ui",
+    "component",
+    "angular-material",
+    "angular-components",
+    "business-hours",
+    "opening-hours",
+    "working-hours"
+  ],
+  "description": "Angular component allows you to show and manage business hours",
+  "author": "Alex Kovalenko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexsds/ng-business-hours"
+  },
+  "bugs": {
+    "url": "https://github.com/alexsds/ng-business-hours/issues"
+  },
+  "homepage": "https://github.com/alexsds/ng-business-hours",
+  "peerDependencies": {
+    "@angular/common": ">=11.0.0 <12.0.0",
+    "@angular/core": ">=11.0.0 <12.0.0",
+    "@angular/forms": ">=11.0.0 <12.0.0",
+    "@angular/material": ">=11.0.0 <12.0.0",
+    "moment": "2.29.x"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

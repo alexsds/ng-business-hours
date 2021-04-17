@@ -1,0 +1,34 @@
+<div class="" style="margin: 2rem">
+  <h1>ng-business-hours v{{version}}</h1>
+  <hr>
+  <b>Settings</b>
+  <br>
+  Locale: {{getLocale()}}&nbsp;|
+  Choose locale:
+  <select (change)="onChangeLocale($event)" [value]="getLocale()">
+    <option value="en">en</option>
+    <option value="ru">ru</option>
+  </select>
+  <br>
+  <button (click)="disabled = !disabled">Toggle disabled</button>
+  Disabled: {{disabled}}
+  <br>
+  <button (click)="isoWeek = !isoWeek">Toggle iso week</button>
+  Iso week: {{isoWeek}}
+  <br>
+  <br>
+  <ng-business-hours [(ngModel)]="businessHours"
+                     [disabled]="disabled"
+                     [isoWeek]="isoWeek"
+                     #input="ngModel"
+                     [timeFromLabel]="getLocale() === 'ru' ? 'Начало' : undefined"
+                     [timeToLabel]="getLocale() === 'ru' ? 'Конец' : undefined"
+                     [validationErrorMessage]="getLocale() === 'ru' ? validationErrorMessageRu : undefined">
+  </ng-business-hours>
+  <br>
+  Valid: {{!input.invalid}}
+  <br>
+  Value:
+  <br>
+  <pre class="code">{{input.value | json }}</pre>
+</div>

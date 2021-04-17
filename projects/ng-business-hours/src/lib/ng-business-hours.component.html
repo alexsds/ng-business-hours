@@ -1,0 +1,38 @@
+<form [formGroup]="form" *ngIf="form">
+  <div class="business-hours"
+       [ngClass]="disabled ? 'business-hours--disabled' : ''">
+    <div *ngFor="let day of weekdays; index as i" [formGroupName]="i" class="day">
+      <div class="business-hours__left">
+        <div class="day__weekday">{{getDateForWeekDay(i) | localizedDate | titlecase}}</div>
+        <div class="day__box"
+             (click)="onChangeOperationState(i)"
+             [ngClass]="businessHours[i]['open'] ? 'day__box--open' : 'day__box--closed'">
+          <input type="checkbox" class="invisible" formControlName="open"/>
+        </div>
+      </div>
+      <div class="business-hours__right">
+        <div class="operation-time">
+          <div class="operation-time__input">
+            <mat-form-field [ngClass]="!businessHours[i]['open'] ? 'invisible' : ''">
+              <mat-label>{{timeFromLabel ? timeFromLabel : 'From'}}</mat-label>
+              <mat-select value="{{businessHours[i]['from']}}" formControlName="from">
+                <mat-option *ngFor="let timeOption of timeOptions" [value]="timeOption">{{timeOption}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="operation-time__input">
+            <mat-form-field [ngClass]="!businessHours[i]['open'] ? 'invisible' : ''">
+              <mat-label>{{timeToLabel ? timeToLabel : 'To'}}</mat-label>
+              <mat-select value="{{businessHours[i]['to']}}" formControlName="to">
+                <mat-option *ngFor="let timeOption of timeOptions" [value]="timeOption">{{timeOption}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <mat-error *ngIf="form.get(i.toString())?.hasError('timeToMustBeGreaterThenTimeFrom')" class="text-small-error">
+            {{validationErrorMessage ? validationErrorMessage : 'The "From" must be earlier than the "To"'}}
+          </mat-error>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

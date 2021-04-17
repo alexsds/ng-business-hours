@@ -1,0 +1,68 @@
+.business-hours
+  &__left
+    width: 70px
+
+  &__right
+    width: calc(100% - 70px)
+
+  &--disabled
+    color: rgba(0, 0, 0, .38)
+
+.day
+  clear: both
+  width: 100%
+  display: flex
+
+  &__box
+    height: 2rem
+    border: 1px solid #888
+    border-radius: 5px
+    float: right
+    width: 2rem
+    cursor: pointer
+    margin-top: .25rem
+
+    &--open
+      border: 1px solid #56e399
+      background-color: #56e399
+
+    &--closed
+      border: 1px solid #ced4da
+      background-color: #ced4da
+
+  &__weekday
+    margin-top: .7rem
+    float: left
+
+.operation-time
+  float: left
+  width: 100%
+
+  &__input
+    margin-left: 1rem
+    float: left
+    width: calc(50% - 1rem)
+
+.invisible
+  visibility: hidden !important
+
+::ng-deep
+  .mat-form-field
+    width: 100%
+
+  .mat-form-field-infix
+    width: 100%
+
+  .mat-form-field-wrapper
+    padding: 0
+
+.text-small-error
+  margin-top: -.75rem
+  margin-left: 1rem
+  display: block
+  float: left
+  font-size: .65rem
+
+.business-hours--disabled .day__box
+  opacity: .7
+  cursor: initial
